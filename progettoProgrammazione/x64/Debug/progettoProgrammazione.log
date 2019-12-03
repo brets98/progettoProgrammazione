@@ -1,2 +1,3 @@
 ﻿  campo.cpp
+C:\Users\luca.bretta\source\repos\progettoProgrammazione\progettoProgrammazione\campo.cpp(122,8): warning C4101: 'i': unreferenced local variable
   progettoProgrammazione.vcxproj -> C:\Users\luca.bretta\source\repos\progettoProgrammazione\x64\Debug\progettoProgrammazione.exe

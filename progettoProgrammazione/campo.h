@@ -17,5 +17,6 @@ public:
 	void regolamento();
 	void sconfitta();
 	void aggiungiO();
+	void spostaO();
 
 };

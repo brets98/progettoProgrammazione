@@ -5,7 +5,7 @@
 
 
 void campo::stampa() {
-	register int i, j;
+	int i, j;
 	for (i = 0; i < campo::righe; i++ ) {
 		for (j = 0; j < campo::colonne; j++) {
 			if (campo::spazio[i][j] == '&')
@@ -15,6 +15,17 @@ void campo::stampa() {
 
 		}
 		cout << "\n";
+	}
+	for (i = campo::righe - 4; i >= 1; i--) // aggiungere controllo collisioni 
+	{
+		for (j = campo::colonne; j >= 1; j--)
+		{
+			if (campo::spazio[i][j] == 'O')
+			{
+				campo::spazio[i][j] = ' ';
+				campo::spazio[i + 1][j] = 'O';
+			}
+		}
 	}
 }
 
@@ -108,7 +119,9 @@ void campo::sconfitta() {
 }
 
 void campo::aggiungiO() {
-	int j;
-	j = 1 + rand() % 24;
+	int j,i;
+	
+	j = 2 + rand() % 24;
 	campo::spazio[1][j] = 'O';
+	
 }
