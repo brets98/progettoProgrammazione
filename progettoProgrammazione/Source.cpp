@@ -1,10 +1,9 @@
 #include "campo.h"
 
 int main() {
-	int punti;
 	bool logical = 1;
 
-	campo c(30, 30);
+	campo c(30, 40, 0);
 	c.sigla();
 	system("pause");
 	system("cls");

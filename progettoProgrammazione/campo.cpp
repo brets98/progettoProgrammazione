@@ -2,22 +2,16 @@
 #include <cstdlib>
 
 
-#define R 40
-#define C 30
-
 
 
 void campo::stampa() {
 	int i, j;
 	for (i = 0; i < campo::a; i++ ) {
 		for (j = 0; j < campo::b; j++) {
-			if (campo::spazio[i][j] == '*' || campo::spazio[i][j] == 'A' || campo::spazio[i][j] == '#'  || campo::spazio[i][j] == '|' || campo::spazio[i][j] == '_') {
-				cout << campo::spazio[i][j] << " ";
-			}
+			if (campo::spazio[i][j] == '&')
+				cout << campo::punti;
 			else
-			{
-				cout << "  ";
-			}
+				cout << campo::spazio[i][j] << " ";
 
 		}
 		cout << "\n";
@@ -26,10 +20,11 @@ void campo::stampa() {
 
 
 
-campo::campo(int a, int b){
+campo::campo(int a, int b, int p){
 
 campo::a = a;
 campo::b = b;
+campo::punti = p;
 
 int colonna, riga;
 
@@ -39,13 +34,13 @@ int i = 0, j = 0;
 
 		for (j = 0; j < campo::b; j++) {
 			
-			if (j == 0 || j == campo::b - 1 || i == 0 || i == campo::a - 1) {
+			if (j == 0 || j == campo::b - 1 || i == 0 || i == campo::a - 1 || j == campo::b - 14 ) {
 				if(i == 0 || i == campo::a - 1)
 					campo::spazio[i][j] = '_';
 				else 
 					campo::spazio[i][j] = '|';
 			}
-			else if (j == 1 || j == campo::b - 2)
+			else if (j == 1 || j == campo::b - 15)
 				campo::spazio[i][j] = '#';
 			else
 				campo::spazio[i][j] = ' ';
@@ -54,15 +49,23 @@ int i = 0, j = 0;
 
 	}
 
+	campo::spazio[14][27] = 'P';
+	campo::spazio[14][28] = 'U';
+	campo::spazio[14][29] = 'N';
+	campo::spazio[14][30] = 'T';
+	campo::spazio[14][31] = 'I';
+	campo::spazio[14][32] = '=';
+	campo::spazio[14][33] = '&';
+	//campo::spazio[14][33] = per far stampare dei punti secondo me va usato un carattere speciale 
 	//crea la pedina
-	riga = campo::a - 3;
+	riga = campo::a - 3; // SOLLEVO DI 3 LA MACCHININA 
 
 	do
 	{
-		colonna = 2 + rand() % 37;//prende un numero casuale tra 2 e 37 e lo mette nel numrto della colonna
+		colonna = 2 + rand() % 24;//prende un numero casuale tra 2 e 37 e lo mette nel numrto della colonna
 		
 	}
-	while (campo::spazio[riga][colonna] == 'C');//non é mai uguale a B quindi fa una mandata e esce, in poche parole cervo dove mettere la "V"
+	while (campo::spazio[i][j]== 'C');//non é mai uguale a B quindi fa una mandata e esce, in poche parole cervo dove mettere la "V"
 	
 	campo::spazio[riga + 1][colonna] = '*';
 	campo::spazio[riga - 1][colonna] = '*';
