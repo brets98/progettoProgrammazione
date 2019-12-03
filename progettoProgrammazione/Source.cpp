@@ -12,6 +12,14 @@ int main() {
 	system("cls");
 	c.stampa();
 	system("pause");
+	while (logical == 1)
+	{
+		system("cls");
+		c.aggiungiO();
+		c.stampa();
+		system("pause");
+	}
+
 
 	/*
 	

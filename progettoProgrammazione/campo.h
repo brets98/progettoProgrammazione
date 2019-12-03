@@ -5,7 +5,7 @@ using namespace std;
 
 class campo {
 protected:
-	int a, b;
+	int righe, colonne;
 	int punti;
 	char spazio[40][40];
 
@@ -16,5 +16,6 @@ public:
 	void sigla();
 	void regolamento();
 	void sconfitta();
+	void aggiungiO();
 
 };

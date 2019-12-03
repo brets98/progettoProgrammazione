@@ -5,9 +5,9 @@
 
 
 void campo::stampa() {
-	int i, j;
-	for (i = 0; i < campo::a; i++ ) {
-		for (j = 0; j < campo::b; j++) {
+	register int i, j;
+	for (i = 0; i < campo::righe; i++ ) {
+		for (j = 0; j < campo::colonne; j++) {
 			if (campo::spazio[i][j] == '&')
 				cout << campo::punti;
 			else
@@ -22,25 +22,25 @@ void campo::stampa() {
 
 campo::campo(int a, int b, int p){
 
-campo::a = a;
-campo::b = b;
+campo::righe = a;//a sono le righe
+campo::colonne = b;//b sono le colonne 
 campo::punti = p;
 
 int colonna, riga;
 
 int i = 0, j = 0;
 
-	for (i = 0; i < campo::a; i++) {
+	for (i = 0; i < campo::righe; i++) {
 
-		for (j = 0; j < campo::b; j++) {
+		for (j = 0; j < campo::colonne; j++) {
 			
-			if (j == 0 || j == campo::b - 1 || i == 0 || i == campo::a - 1 || j == campo::b - 14 ) {
-				if(i == 0 || i == campo::a - 1)
+			if (j == 0 || j == campo::colonne - 1 || i == 0 || i == campo::righe - 1 || j == campo::colonne - 14 ) {
+				if(i == 0 || i == campo::righe - 1)
 					campo::spazio[i][j] = '_';
 				else 
 					campo::spazio[i][j] = '|';
 			}
-			else if (j == 1 || j == campo::b - 15)
+			else if (j == 1 || j == campo::colonne - 15)
 				campo::spazio[i][j] = '#';
 			else
 				campo::spazio[i][j] = ' ';
@@ -58,7 +58,7 @@ int i = 0, j = 0;
 	campo::spazio[14][33] = '&';
 	//campo::spazio[14][33] = per far stampare dei punti secondo me va usato un carattere speciale 
 	//crea la pedina
-	riga = campo::a - 3; // SOLLEVO DI 3 LA MACCHININA 
+	riga = campo::righe - 3; // SOLLEVO DI 3 LA MACCHININA 
 
 	do
 	{
@@ -105,4 +105,10 @@ void campo::regolamento() {
 
 void campo::sconfitta() {
 
+}
+
+void campo::aggiungiO() {
+	int j;
+	j = 1 + rand() % 24;
+	campo::spazio[1][j] = 'O';
 }
