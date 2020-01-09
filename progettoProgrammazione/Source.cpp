@@ -21,7 +21,6 @@ int main() {
 		c.aggiungiO();
 		c.stampa();
 		
-		
 		//controllo del movimento della macchina 
 		switch (_getch())
 		{
@@ -41,11 +40,7 @@ int main() {
 	}
 
 
-	/*
 	
-		QUI CI VA IL WHILE DEL PROCESSO DEL GIOCO
-	
-	*/
 
 	return 0;
 }

@@ -26,5 +26,5 @@ public:
 	void scriviMacchina();
 	void scriviLevel();
 	void muoviSinistra();
-	void muoviDestra();// ancora da implementare
+	void muoviDestra();
 };

@@ -73,7 +73,10 @@ void campo::stampa() {
 			if (campo::spazio[i][j] == 'O')
 			{
 				campo::spazio[i][j] = ' ';
-				campo::spazio[i + 1][j] = 'O';
+				if (i >= campo::macchina.riga + 1)
+					campo::spazio[i + 1][j] = ' ';
+				else 
+					campo::spazio[i + 1][j] = 'O';
 			}
 		}
 	}
